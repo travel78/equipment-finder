@@ -1,0 +1,7 @@
+{
+  "name": "equipment-finder",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
