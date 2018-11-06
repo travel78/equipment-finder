@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
+    {path: '', redirectTo: 'login', pathMatch: 'full'},
+    {path: 'login', loadChildren: './login/login.module#LoginPageModule'},
+    {path: 'user', loadChildren: './user/user.module#UserPageModule'},
+    {path: 'admin', loadChildren: './admin/admin.module#AdminPageModule'}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

@@ -1,0 +1,71 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/admin"></ion-back-button>
+        </ion-buttons>
+
+        <ion-title>Register fitment</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <form [formGroup]="fitmentForm">
+        <ion-item>
+            <ion-label>Name:</ion-label>
+            <ion-input type="text" formControlName="title"></ion-input>
+        </ion-item>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-button expand='block' fill="outline" type="button" (click)="onLocate()">
+                        <ion-icon slot="start" name="locate"></ion-icon>
+                        Locate me
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button expand='block' fill="outline" type="button" (click)="onOpenMap()">
+                        <ion-icon slot="start" name="map"></ion-icon>
+                        Select on Map
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="locationIsSet">
+                <ion-col>
+                    <agm-map
+                            [latitude]="location.lat"
+                            [longitude]="location.lng"
+                            [zoom]="10">
+                        <agm-marker
+                                [latitude]="location.lat"
+                                [longitude]="location.lng"></agm-marker>
+                    </agm-map>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-center>
+                    <h5>Take a Photo!</h5>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-button expand='block' fill="outline" type="button" (click)="onTakePhoto()">
+                        <ion-icon slot="start" name="camera"></ion-icon>
+                        Open Camera
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="imageUrl && imageUrl != ''">
+                <ion-col>
+                    <img [src]="imageUrl">
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-button color="secondary" expand='block' type="submit" [disabled]="fitmentForm.invalid">
+                        Register fitment
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

@@ -1,0 +1,27 @@
+<ion-content style="display: flex" padding >
+    <div class="wrapper" align-items-center>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <ion-list>
+                <ion-item>
+                    <ion-label fixed>Username</ion-label>
+                    <ion-input type="text" formControlName="name"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label fixed>Password</ion-label>
+                    <ion-input type="password" formControlName="password"></ion-input>
+                </ion-item>
+                <ion-text color="danger">
+                    <p>{{error}}</p>
+                </ion-text>
+            </ion-list>
+
+            <div padding>
+                <ion-button [disabled]="loginForm.invalid" type="submit" shape="round" color="primary" fill="outline"
+                            expand="block">Log In
+                </ion-button>
+            </div>
+        </form>
+    </div>
+
+</ion-content>

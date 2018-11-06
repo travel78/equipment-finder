@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Fitments</ion-title>
+        <ion-buttons slot="end">
+            <ion-button slot="icon-only" routerDirection="forward" href="/admin/fitment">
+                <ion-icon name="add"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card *ngFor="let fitment of fitments; let i = index">
+        <img [src]="fitment.imageUrl">
+        <ion-card-content text-center>
+            <ion-card-title>
+                {{ fitment.title }}
+            </ion-card-title>
+            <p>{{ fitment.description }}</p>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
